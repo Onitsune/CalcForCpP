@@ -1,0 +1,97 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void add(double x, double y) {
+    cout << "The result is: " << x + y << endl;
+}
+
+void subtract(double x, double y) {
+    cout << "The result is: " << x - y << endl;
+}
+
+void multiply(double x, double y) {
+    cout << "The result is: " << x * y << endl;
+}
+
+void divide(double x, double y) {
+    if (y != 0)
+        cout << "The result is: " << x / y << endl;
+    else
+        cout << "Error! Division by zero." << endl;
+}
+
+void square_root(double x) {
+    if (x >= 0)
+        cout << "The result is: " << sqrt(x) << endl;
+    else
+        cout << "Error! Cannot compute the square root of a negative number." << endl;
+}
+
+void power(double x, double y) {
+    cout << "The result is: " << pow(x, y) << endl;
+}
+
+void logarithm(double x, double base) {
+    if (x > 0 && base > 0 && base != 1)
+        cout << "The result is: " << log(x) / log(base) << endl;
+    else
+        cout << "Error! Invalid input for logarithm." << endl;
+}
+
+int main() {
+    int choice;
+    double num1, num2;
+
+    cout << "Welcome to the multifunction calculator!" << endl;
+    cout << "Available operations:" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Square Root" << endl;
+    cout << "6. Power" << endl;
+    cout << "7. Logarithm" << endl;
+
+    cout << "Enter the number of the operation you want to perform: ";
+    cin >> choice;
+
+    if (choice >= 1 && choice <= 6) {
+        cout << "Enter the first number: ";
+        cin >> num1;
+        cout << "Enter the second number: ";
+        cin >> num2;
+    }
+
+    switch (choice) {
+        case 1:
+            add(num1, num2);
+            break;
+        case 2:
+            subtract(num1, num2);
+            break;
+        case 3:
+            multiply(num1, num2);
+            break;
+        case 4:
+            divide(num1, num2);
+            break;
+        case 5:
+            square_root(num1);
+            break;
+        case 6:
+            power(num1, num2);
+            break;
+        case 7:
+            cout << "Enter the base: ";
+            double base;
+            cin >> base;
+            logarithm(num1, base);
+            break;
+        default:
+            cout << "Invalid input. Please select a valid operation." << endl;
+    }
+
+    return 0;
+}
